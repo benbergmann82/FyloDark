@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700&display=swap');
+
+$primary-bg: #1C2431;
+$secondary-bg: #181F2A;
+$footer-bg: #0B1523;
+$accent-bg: #202A3C;
+$button-bg: #4CC0D3;
+$cyan: #65E2D9;
+$blue: #339ECC;
+$error: #FF4242;
+$white: #FFFFFF;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background: $accent-bg;
+    color: $white;
+}
+
+header {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+
+    @media only screen and (min-width: 760px) {
+        padding: 3rem;
+    }
+    
+    img {
+        width: 90px;
+
+        @media only screen and (min-width: 760px) {
+            width: 140px;
+        }
+    }
+
+    nav {
+        flex-grow: 1;
+        text-align: right;
+
+        ul {
+            list-style-type: none;
+            
+            li {
+                display: inline-block;
+                padding-left: 1rem;
+    
+                a {
+                    color: $white;
+                    text-decoration: underline;
+                    text-decoration-color: transparent;
+                    transition: text-decoration-color ease-in-out 0.4s;
+
+                    &:hover {
+                        text-decoration-color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+main {
+    position: relative;
+    background: $secondary-bg;
+
+    #hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 1.5rem;
+        background: url('./images/bg-curvy-mobile.svg') bottom center no-repeat, $accent-bg;
+        background-size: contain;
+        
+        @media only screen and (min-width: 760px) {
+            background: url('./images/bg-curvy-desktop.svg') bottom center no-repeat, $accent-bg;
+            background-size: contain;
+        }
+
+        img {
+            width: 80%;
+
+            @media only screen and (min-width: 760px) {
+                width: 50%;
+            }
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+
+            @media only screen and (min-width: 760px) {
+                font-size: 2rem;
+                max-width: 50%;
+            }
+        }
+
+        p {
+            text-align: center;
+            line-height: 1.6rem;
+            font-size: 0.9rem;
+
+            @media only screen and (min-width: 760px) {
+                line-height: 1.8rem;
+                font-size: 1rem;
+                max-width: 50%;
+            }
+        }
+
+        a {
+            margin: 1.5rem 0;
+            padding: 1rem 6rem;
+            border-radius: 2rem;
+            border: none;
+            background: $button-bg;
+            color: $white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            z-index: 1;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border-radius: 2rem;
+                opacity: 1;
+                transition: opacity 0.4s;
+                z-index: -1;
+                background: linear-gradient(90deg, $cyan, $blue);
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+
+    #features {
+        background: $secondary-bg;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 1.5rem;
+
+        @media only screen and (min-width: 760px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.5rem 0;
+
+            @media only screen and (min-width: 760px) {
+                width: 35%;
+                flex-shrink: 0;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+                margin: 1rem 0;
+            }
+
+            p {
+                font-size: 0.9rem;
+                text-align: center;
+                line-height: 1.6rem;
+            }
+        }
+    }
+
+    #secondary {
+        background: $secondary-bg;
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 1.5rem;
+        margin-bottom: 4rem;
+
+        @media only screen and (min-width: 760px) {
+                 padding: 3rem 6rem;
+        }
+
+        @media only screen and (min-width: 900px) {
+            flex-direction: row;
+            gap: 4rem;
+            padding: 3rem 8rem;
+        }
+        
+        img {
+            width: 80%;
+            align-self: center;
+
+            @media only screen and (min-width: 900px) {
+                width: 60%;
+                align-self: flex-start;
+                max-width: 700px;
+            }
+        }
+
+        div {
+
+            @media only screen and (min-width: 900px) {
+                align-self: center;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+                margin: 3rem 0 0.5rem 0;
+
+                @media only screen and (min-width: 900px) {
+                    font-size: 1.8rem;
+                }
+            }
+    
+            p {
+                font-size: 0.9rem;
+                line-height: 1.6rem;
+                margin: 1rem 0;
+            }
+    
+            a {
+                display: inline-block;
+                align-self: flex-start;
+                text-decoration: none;
+                color: $cyan;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid $cyan;
+                transition: color ease-in-out 0.4s, border ease-in-out 0.4s;
+    
+                &:hover {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+    
+                    svg {
+                        color: $white;
+                    }
+                }
+                
+                svg {
+                    position: relative;
+                    top: 5px;
+                    height: 20px;
+                    width: 20px;
+                    margin-left: 5px;
+                    color: $cyan;
+                    transition: color ease-in-out 0.4s;
+                }
+            }
+        }
+        
+    }
+
+    #testimonials {
+        background: url('./images/bg-quotes.png') top 1.3rem left 3rem no-repeat, $secondary-bg;
+        background-size: 30px;
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 3rem 16rem 3rem;
+
+        @media only screen and (min-width: 760px) {
+            background: url('./images/bg-quotes.png') top 1.3rem left 6rem no-repeat, $secondary-bg;
+            background-size: 30px;
+            padding: 3rem 6rem 16rem 6rem;
+        }
+
+        @media only screen and (min-width: 900px) {
+            flex-direction: row;
+            justify-content: space-between;
+            background: url('./images/bg-quotes.png') top 0.2rem left 5rem no-repeat, $secondary-bg;
+            background-size: 50px;
+            padding: 3rem 6rem 16rem 6rem;
+            gap: 2rem;
+        }
+
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            background: $accent-bg;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.01);
+
+            @media only screen and (min-width: 900px) {
+                flex-grow: 1;
+                flex-basis: 0;
+                justify-content: space-between;
+            }
+
+            p {
+                font-size: 0.8rem;
+                line-height: 1.6rem;
+            }
+
+            p + div {
+                display: flex;
+                margin-top: 1rem;
+
+                img {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 100%;
+                }
+
+                div {
+                    margin-left: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    span {
+                        font-size: 0.8rem;
+                        display: block;
+
+                        &:first-of-type {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #newsletter {
+        background: $accent-bg;
+        position: absolute;
+        left: 1.5rem;
+        right: 1.5rem;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+        bottom: -200px;
+        box-shadow: 5px 5px 8px rgba(0, 0, 0, .3);
+
+        @media only screen and (min-width: 760px) {
+            bottom: -190px;
+            padding: 3rem;
+            left: 10rem;
+            right: 10rem;
+        }
+
+        @media only screen and (min-width: 900px) {
+            bottom: -130px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.6rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            @media only screen and (min-width: 900px) {
+                flex-direction: row;
+            }
+
+            input {
+                padding: 1.5rem;
+                border-radius: 2rem;
+                border: none;
+    
+                @media only screen and (min-width: 760px) {
+                    flex-grow: 3;
+                    padding: 1rem 1.5rem;
+                }
+            }
+    
+            button {
+                padding: 1.5rem;
+                border-radius: 2rem;
+                border: none;
+                background: $button-bg;
+                color: $white;
+                font-size: 1rem;
+                cursor: pointer;
+                position: relative;
+                z-index: 1;
+
+                @media only screen and (min-width: 760px) {
+                    flex-grow: 1;
+                    padding: 1rem 1.5rem;
+                }
+    
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: linear-gradient(90deg, $cyan, $blue);
+                    border-radius: 2rem;
+                    transition: opacity 0.4s;
+                    opacity: 1;
+                    z-index: -1;
+                }
+    
+                &:hover {
+                    &::before {
+                        opacity: 0;
+                    }
+                }
+            }
+        }      
+    }
+}
+
+footer {
+    background: $footer-bg;
+    padding: 18rem 1.5rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 760px) {
+        padding: 18rem 8rem 2rem 8rem;
+    }
+
+    @media only screen and (min-width: 900px) {
+        padding: 18rem 8rem 2rem 8rem;
+    }
+    
+    img {
+        width: 50%;
+        max-width: 250px;
+
+        @media only screen and (min-width: 760px) {
+            width: 150px;
+        }
+
+        @media only screen and (min-width: 900px) {
+            width: 150px;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    div {
+        @media only screen and (min-width: 900px) {
+            display: grid;
+            grid-template-columns: 5fr 2fr 1fr;
+            grid-gap: 1rem;
+        }
+
+        #contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2.5rem 0;
+
+            @media only screen and (min-width: 900px) {
+                flex-direction: row;
+                padding: 0;
+            }
+    
+            div {
+                display: flex;
+                gap: 1.5rem;
+
+                &:nth-of-type(2) {
+                    flex-direction: column;
+
+                    @media only screen and (min-width: 900px) {
+                        gap: 0;
+                    }
+
+                    div {
+                        flex-direction: row;
+
+                        @media only screen and (min-width: 900px) {
+                            gap: 1.5rem;
+                        }
+                    }
+                }
+
+                img {
+                    width: 1.5rem;
+                    height: 1.3rem;
+                }
+            }
+        }
+    
+        #footer-menu {
+            margin-top: 3rem;
+
+            @media only screen and (min-width: 900px) {
+                margin-top: 0;
+                display: flex;
+                justify-content: space-around;
+            }
+    
+            ul {
+                list-style-type: none;
+                margin-bottom: 3rem;
+
+                li {
+                    display: block;
+                    margin-bottom: 1.5rem;
+
+                    @media only screen and (min-width: 900px) {
+                        margin-bottom: 1rem;
+                    }
+    
+                    a {
+                        color: $white;
+                        text-decoration: underline;
+                        text-decoration-color: transparent;
+                        transition: text-decoration-color ease-in-out 0.4s;
+    
+                        &:hover {
+                            text-decoration-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    
+        #social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding-top: 2rem;
+
+            @media only screen and (min-width: 900px) {
+                padding: 0;
+            }
+    
+            svg {
+                border: 1px solid $white;
+                padding: 10px;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                color: $white;
+                transition: color ease-in-out 0.3s, border ease-in-out 0.3s;
+    
+                &:hover {
+                    color: $cyan;
+                    border: 1px solid $cyan;
+                }
+            }
+        }
+        
+    }
+    
+}
+
